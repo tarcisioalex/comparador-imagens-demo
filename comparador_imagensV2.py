@@ -1,9 +1,14 @@
 import cv2
 import face_recognition as fr
+import os
+
+#encontra o caminho para a imagem
+base_dir = os.path.dirname(os.path.abspath(__file__))
+image_dir = os.path.join(base_dir, "imgs")
 
 #inicializa o cv2 na captura da webcam e codifica a imagem
 webcam = cv2.VideoCapture(0)
-imgDilma = fr.load_image_file('<coloca o caminho da imagem aqui>')
+imgDilma = fr.load_image_file(image_dir + '/dilma_rousseff_image.jpg')
 encodeImgDilma = fr.face_encodings(imgDilma)[0]
 
 while True:
